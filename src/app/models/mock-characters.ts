@@ -1,5 +1,6 @@
-import { Character } from "./character";
+// DELETE THIS FILE
 
+/* import { Character } from "./character";
 
 export const CHARACTERS:Character[] = [
     { id: 1, name: 'Nami' },
@@ -13,3 +14,4 @@ export const CHARACTERS:Character[] = [
     { id: 9, name: 'Franky'},
   ];
   
+ */

@@ -4,11 +4,26 @@
   </h1>
 </div>
 <H2>One Piece's characters</H2>
+<div>
+  <label>Hero Name:</label><input #heroName />
+  <button (click)="add(heroName.value); heroName.value=''">
+    Add
+  </button>
+</div>
 <ul class="characters">
   <li *ngFor="let character of characters" [class.selected]="character === selectedCharacter"
   (click)="onSelect(character)"> 
     <span class="badge">{{character.id}}</span>{{character.name}}
+    <button class ="delete" (click)="delete(character); $event.stopPropagation()">
+      X
+    </button>
   </li>
 </ul>
+<div *ngIf="selectedCharacter">
+  <h2>{{ selectedCharacter.name | uppercase }} is my character.</h2>
+  <button (click)="goToDetail()">View Details</button>
+</div>
 
-<app-character-detail [character] = "selectedCharacter"></app-character-detail>
+
+<!-- <app-character-detail [character] = "selectedCharacter"></app-character-detail> -->
+

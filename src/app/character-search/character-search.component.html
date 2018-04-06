@@ -1,0 +1,22 @@
+
+  <h3>Chacter Search</h3>
+   <mat-form-field> 
+    <input matInput searchBox placeholder="Search for character name" (keyup) = "search(searchBox.value)" />
+  </mat-form-field> 
+  <mat-nav-list> 
+      <a mat-list-item *ngFor="let character of characters | async" (click)="goToDetail(character)">
+       {{ character.name }} 
+      </a>
+   </mat-nav-list> 
+
+   
+   <form class="example-form">
+     <mat-form-field class="example-full-width">
+       <input matInput placeholder="Favorite food" value="Sushi">
+     </mat-form-field>
+   
+     <mat-form-field class="example-full-width">
+       <textarea matInput placeholder="Leave a comment"></textarea>
+     </mat-form-field>
+   </form>
+   
