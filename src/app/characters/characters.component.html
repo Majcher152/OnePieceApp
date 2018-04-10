@@ -4,9 +4,28 @@
   </h1>
 </div>
 <H2>One Piece's characters</H2>
-<div>
-  <label>Hero Name:</label><input #heroName />
-  <button (click)="add(heroName.value); heroName.value=''">
+
+<mat-card>
+  <mat-input-container>
+    <input matInput #characterName placeholder="Character Name" />
+  </mat-input-container>
+  <button mat-raised-button (click)="add(characterName.value); characterName.value=''">
+    Add
+  </button>
+</mat-card>
+
+<mat-nav-list>
+    <a mat-list-item *ngFor="let character of characters" (click)="onSelect(character)"> 
+      <span mat-line>{{character.name}}</span>
+      <button mat-icon-button (click)="delete(character); $event.stopPropagation()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </a>
+</mat-nav-list>
+
+<!-- <div>
+  <label>Character Name:</label><input #characterName />
+  <button (click)="add(characterName.value); characterName.value=''">
     Add
   </button>
 </div>
@@ -23,7 +42,7 @@
   <h2>{{ selectedCharacter.name | uppercase }} is my character.</h2>
   <button (click)="goToDetail()">View Details</button>
 </div>
-
+ -->
 
 <!-- <app-character-detail [character] = "selectedCharacter"></app-character-detail> -->
 

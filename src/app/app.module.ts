@@ -11,12 +11,13 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
   MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatCardModule, MatIconModule, MatListItem,
   MatSidenav, MatNavList
 } from '@angular/material'; */
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list'
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
-import { CharactersComponent } from './characters/characters.component';
+import { CharactersComponent, SelectedCharacterDialog } from './characters/characters.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { CharacterService } from './services/character.service';
@@ -42,7 +43,8 @@ import 'rxjs/add/operator/switchMap';
     CharacterDetailComponent,
     CharactersComponent,
     DashboardComponent,
-    CharacterSearchComponent
+    CharacterSearchComponent,
+    SelectedCharacterDialog
   ],
   imports: [
     BrowserModule, 
@@ -50,11 +52,12 @@ import 'rxjs/add/operator/switchMap';
     HttpModule,
     RoutingModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-     MaterialModule , BrowserAnimationsModule, MatFormFieldModule, MatListModule
+     MaterialModule , BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatListModule, MatDialogModule 
 /*    BrowserAnimationsModule, MatButtonModule, MatCheckboxModule,  MatButtonModule,  MatMenuModule,  MatToolbarModule,  MatIconModule,
    MatCardModule */
   ],
-  providers: [CharacterService, CharacterSearchService],
-  bootstrap: [AppComponent]
+  providers: [CharacterService, CharacterSearchService, MatDialog],
+  bootstrap: [AppComponent],
+  entryComponents: [SelectedCharacterDialog]
 })
 export class AppModule { }

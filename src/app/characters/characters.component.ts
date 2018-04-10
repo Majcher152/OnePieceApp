@@ -4,7 +4,8 @@ import { Character } from '../models/character';
 
 import { CharacterService } from '../services/character.service';
 import { Router } from '@angular/router';
-
+import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { templateJitUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-characters',
@@ -13,16 +14,16 @@ import { Router } from '@angular/router';
 })
 
 
-export class CharactersComponent implements OnInit {
-
-   
+export class CharactersComponent implements OnInit {   
   title = 'One Piece';
   characters: Character[];
   selectedCharacter: Character;
+  dialogRef: MatDialogRef<SelectedCharacterDialog>;
 
   constructor(
     private characterService: CharacterService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ){
 
   }
@@ -36,7 +37,9 @@ export class CharactersComponent implements OnInit {
   }
 
   onSelect(character: Character): void {
-    this.selectedCharacter = character;
+    this.dialogRef = this.dialog.open(SelectedCharacterDialog);
+    this.dialogRef.componentInstance.selectedCharacter = character;
+ /*    this.selectedCharacter = character; */
   }
 
   goToDetail(){
@@ -63,3 +66,25 @@ export class CharactersComponent implements OnInit {
     });
   }
 }
+
+ @Component({
+  selector: 'selected-character-dialog',
+  template:`
+    <h2>{{ selectedCharacter.name | uppercase }}</h2>
+    <button mat-raised-button color="primary" (click)="gotoDetail()">View Details</button>
+    <button mat-raised-button (click)="dialogRef.close()">Close</button>
+  `
+})
+export class SelectedCharacterDialog {
+  selectedCharacter: any;
+
+  constructor(
+    public dialogRef: MatDialogRef<SelectedCharacterDialog>,
+    private router: Router){
+    }
+
+    gotoDetail() {
+      this.dialogRef.close();
+      this.router.navigate(['/detail', this.selectedCharacter.id]);
+    }
+} 
