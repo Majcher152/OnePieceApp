@@ -12,7 +12,7 @@ export class InMemoryDataService implements InMemoryDbService {
       let characters = [
       { id: 1, name: 'Nami' },
       { id: 2, name: 'Luffy'},
-      { id: 3, name: 'Zorro'},
+      { id: 3, name: 'Zoro'},
       { id: 4, name: 'Sanji'},
       { id: 5, name: 'Brook'},
       { id: 6, name: 'Robin'},

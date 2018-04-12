@@ -1,3 +1,4 @@
+import { ImageService } from './services/image.service';
 import { CharacterSearchService } from './services/character-search.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -23,6 +24,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CharacterService } from './services/character.service';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { CharacterSearchComponent } from './character-search/character-search.component';
+import { ImageComponent } from './image/image.component';
 
 // Observable class extensions
 import 'rxjs/add/observable/of';
@@ -37,6 +39,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,8 @@ import 'rxjs/add/operator/switchMap';
     CharactersComponent,
     DashboardComponent,
     CharacterSearchComponent,
-    SelectedCharacterDialog
+    SelectedCharacterDialog,
+    ImageComponent
   ],
   imports: [
     BrowserModule, 
@@ -56,7 +60,7 @@ import 'rxjs/add/operator/switchMap';
 /*    BrowserAnimationsModule, MatButtonModule, MatCheckboxModule,  MatButtonModule,  MatMenuModule,  MatToolbarModule,  MatIconModule,
    MatCardModule */
   ],
-  providers: [CharacterService, CharacterSearchService, MatDialog],
+  providers: [CharacterService, CharacterSearchService, MatDialog, ImageService],
   bootstrap: [AppComponent],
   entryComponents: [SelectedCharacterDialog]
 })

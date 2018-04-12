@@ -1,5 +1,8 @@
 <div *ngIf="character">
-    <h2>{{character.name}} details!</h2>
+    <h2>{{character.name}} details:</h2>
+
+    <img src="{{ visibleImage.url }}" class="img-big" width="200" height="160">
+
     <div>
       <label>id:</label>{{character.id}}
     </div>

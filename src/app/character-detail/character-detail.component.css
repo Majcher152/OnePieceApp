@@ -27,3 +27,12 @@ button:hover {
     color: #ccc; 
     cursor: auto;
 } */
+
+
+.img-big{
+    width: 30%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

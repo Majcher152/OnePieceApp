@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 
 import { Character } from './../models/character';
 
 import { CharacterService } from '../services/character.service';
+import { ImageService } from './../services/image.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,11 +13,14 @@ import { CharacterService } from '../services/character.service';
 export class DashboardComponent implements OnInit {
 
   characters: Character[] = [];
-  constructor(private characterService: CharacterService) { }
+  visibleImages: any[] = [];
+  constructor(private characterService: CharacterService, private imageService: ImageService) {
+    this.visibleImages = this.imageService.getImages();
+   }
 
   ngOnInit() {
     this.characterService.getCharacters()
-    .then(characters => this.characters = characters.slice(1, 5));
+    .then(characters => this.characters = characters.slice(0, 4));
   }
 
 
