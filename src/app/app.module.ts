@@ -15,6 +15,8 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list'
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppComponent } from './app.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
@@ -56,9 +58,7 @@ import 'rxjs/add/operator/switchMap';
     HttpModule,
     RoutingModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-     MaterialModule , BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatListModule, MatDialogModule 
-/*    BrowserAnimationsModule, MatButtonModule, MatCheckboxModule,  MatButtonModule,  MatMenuModule,  MatToolbarModule,  MatIconModule,
-   MatCardModule */
+     MaterialModule , BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatListModule, MatDialogModule, MatTabsModule, MatDividerModule
   ],
   providers: [CharacterService, CharacterSearchService, MatDialog, ImageService],
   bootstrap: [AppComponent],
