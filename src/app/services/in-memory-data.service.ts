@@ -8,7 +8,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
    }
 
-  createDb() {
+   createDb() {
       let characters = [
       { id: 1, name: 'Nami' },
       { id: 2, name: 'Luffy'},
@@ -20,10 +20,13 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 8, name: 'Chopper'},
       { id: 9, name: 'Franky'}
     ];
-    return {characters};
-  }
+    let ships = [
+      { id: 1, name: 'Going Merry' },
+      { id: 2, name: 'Sunny'}
+    ];
+    return {characters, ships};
+  } 
 
-  
 
   
 }

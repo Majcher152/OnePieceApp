@@ -4,11 +4,14 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Character } from './../models/character';
+import { Ship } from '../models/ship';
+import { shiftInitState } from '@angular/core/src/view';
 
 
 @Injectable()
 export class CharacterService {
   private charactersUrl = 'api/characters';
+  private shipsUrl = 'api/ships';
   private headers = new Headers({'Content-type': 'application/json'});
 
   constructor(private http: Http) { 
@@ -20,6 +23,7 @@ export class CharacterService {
     .toPromise()
     .then(response => response.json().data as Character[])
     .catch(this.handleError);
+    
   }
 
   getCharacter(id: number): Promise<Character> {
@@ -57,6 +61,11 @@ export class CharacterService {
 
   }
 
+  getShips(): Promise<Ship[]> {
+    return this.http.get(this.shipsUrl).toPromise()
+              .then(response => response.json().data as Ship[])
+              .catch(this.handleError);
+  }
 
   private handleError(error: any): Promise<any> {
     console.error(error);

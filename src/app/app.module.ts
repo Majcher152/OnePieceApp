@@ -1,5 +1,4 @@
-import { ImageService } from './services/image.service';
-import { CharacterSearchService } from './services/character-search.service';
+import { ShipService } from './services/ship.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -19,14 +18,19 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import { CharactersComponent, SelectedCharacterDialog } from './characters/characters.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-
-import { CharacterService } from './services/character.service';
-import { InMemoryDataService } from './services/in-memory-data.service';
 import { CharacterSearchComponent } from './character-search/character-search.component';
 import { ImageComponent } from './image/image.component';
+import { ShipsComponent } from './ships/ships.component';
+import { ShipDetailComponent } from './ship-detail/ship-detail.component';
+
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { CharacterService } from './services/character.service';
+import { CharacterSearchService } from './services/character-search.service';
+import { ImageService } from './services/image.service';
+
 
 // Observable class extensions
 import 'rxjs/add/observable/of';
@@ -42,6 +46,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +55,9 @@ import 'rxjs/add/operator/switchMap';
     DashboardComponent,
     CharacterSearchComponent,
     SelectedCharacterDialog,
-    ImageComponent
+    ImageComponent,
+    ShipsComponent,
+    ShipDetailComponent
   ],
   imports: [
     BrowserModule, 
@@ -60,7 +67,7 @@ import 'rxjs/add/operator/switchMap';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
      MaterialModule , BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatListModule, MatDialogModule, MatTabsModule, MatDividerModule
   ],
-  providers: [CharacterService, CharacterSearchService, MatDialog, ImageService],
+  providers: [CharacterService, CharacterSearchService, MatDialog, ImageService, ShipService],
   bootstrap: [AppComponent],
   entryComponents: [SelectedCharacterDialog]
 })
