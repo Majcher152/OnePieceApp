@@ -23,7 +23,7 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
 import { CharactersComponent, SelectedCharacterDialog } from './characters/characters.component';
 import { CharacterSearchComponent } from './character-search/character-search.component';
 import { ImageComponent } from './image/image.component';
-import { ShipsComponent } from './ships/ships.component';
+import { ShipsComponent, SelectedShipDialog } from './ships/ships.component';
 import { ShipDetailComponent } from './ship-detail/ship-detail.component';
 
 import { InMemoryDataService } from './services/in-memory-data.service';
@@ -52,12 +52,13 @@ import 'rxjs/add/operator/switchMap';
     AppComponent,
     CharacterDetailComponent,
     CharactersComponent,
-    DashboardComponent,
     CharacterSearchComponent,
     SelectedCharacterDialog,
+    DashboardComponent,
     ImageComponent,
     ShipsComponent,
-    ShipDetailComponent
+    ShipDetailComponent,
+    SelectedShipDialog
   ],
   imports: [
     BrowserModule, 
@@ -69,6 +70,6 @@ import 'rxjs/add/operator/switchMap';
   ],
   providers: [CharacterService, CharacterSearchService, MatDialog, ImageService, ShipService],
   bootstrap: [AppComponent],
-  entryComponents: [SelectedCharacterDialog]
+  entryComponents: [SelectedCharacterDialog, SelectedShipDialog]
 })
 export class AppModule { }

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 import { Character } from './../models/character';
 import { Ship } from '../models/ship';
 import { shiftInitState } from '@angular/core/src/view';
-
+ 
 
 @Injectable()
 export class CharacterService {

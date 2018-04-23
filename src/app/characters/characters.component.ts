@@ -85,6 +85,6 @@ export class SelectedCharacterDialog {
 
     gotoDetail() {
       this.dialogRef.close();
-      this.router.navigate(['/detail', this.selectedCharacter.id]);
+      this.router.navigate(['character/detail', this.selectedCharacter.id]);
     }
 } 
