@@ -32,6 +32,14 @@
       </mat-list>
     </mat-tab>
     <!--###################################################################################-->
+    <mat-tab label="Ships">
+      <mat-list>
+        <a mat-list-item *ngFor="let ship of ships" (click)="onSelect(ship)">
+          <span mat-line>{{ ship.name }}</span>
+        </a>
+      </mat-list>
+    </mat-tab>
+    <!--###################################################################################-->
     <mat-tab label="About">
       <mat-card class="info">SOON</mat-card>
     </mat-tab>

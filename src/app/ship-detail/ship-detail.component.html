@@ -1,3 +1,53 @@
-<p>
-  ship-detail works!
-</p>
+<div *ngIf="ship">
+  <h2>{{ ship.name }} details:</h2>
+
+  <mat-tab-group>
+    <mat-tab label="Picture">
+       <img src="{{ visibleImage.url }}" class="img-big"> 
+    </mat-tab>
+    <mat-tab label="Basic info">
+      <mat-list>
+        <mat-list-item>
+          <label>ID:</label>{{ ship.id }}
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <label>Name:</label>{{ ship.name }}
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-tab>
+    <!--###################################################################################-->
+    <mat-tab label="Edit basic info">
+      <mat-list>
+        <mat-list-item>
+          <label>Edit ship's name:</label>
+          <input [(ngModel)]="ship.name" placeholder="name">
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <button (click)="save()">Save</button>
+        </mat-list-item>
+      </mat-list>
+    </mat-tab>
+    <!--###################################################################################-->
+    <mat-tab label="Characters">
+      <mat-list>
+        <a mat-list-item *ngFor="let character of characters" (click)="onSelect(character)">
+          <span mat-line>{{ character.name }}</span>
+        </a>
+      </mat-list>
+    </mat-tab>
+    <!--###################################################################################-->
+    <mat-tab label="About">
+      <mat-card class="info">SOON</mat-card>
+    </mat-tab>
+    <!--###################################################################################-->
+    <mat-tab label="Trivia">
+      <mat-card class="info">SOON</mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<div class="footer">
+  <button (click)="goBack()" class="button-back">Back</button>
+</div>

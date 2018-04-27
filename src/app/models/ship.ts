@@ -1,4 +1,5 @@
 export class Ship {
         id: number;
-        name: string;
+        name: String;
+        category: String;
 }

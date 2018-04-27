@@ -1,3 +1,7 @@
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { SelectedShipDialog } from './../ships/ships.component';
+import { Ship } from './../models/ship';
+import { ShipService } from './../services/ship.service';
 
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -19,6 +23,10 @@ import 'rxjs/add/operator/switchMap';
 export class CharacterDetailComponent implements OnInit {
 
   id: number;
+  ships: Ship[] = [];
+  category: String;
+  amount: number;
+  dialogRef: MatDialogRef<SelectedShipDialog>;
 
   @Input()
   character: Character;
@@ -26,9 +34,11 @@ export class CharacterDetailComponent implements OnInit {
 
     constructor(
     private characterService: CharacterService,
+    private shipService: ShipService,
     private route: ActivatedRoute,
     private location: Location,
-    private imageService: ImageService
+    private imageService: ImageService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -42,8 +52,27 @@ export class CharacterDetailComponent implements OnInit {
           this.visibleImage = this.imageService.getImage(this.id);
         });
         
+      if(this.id < 9) {
+        this.getShips(); }
+      else {
+        this.getShip(); }
+  
   }
 
+  getShips():void{
+    this.shipService.getShips()
+      .then(ships => this.ships = ships);
+  }
+
+  getShip(): void {
+    this.shipService.getShips()
+      .then(ships => this.ships = ships.slice(1,2));
+  }
+
+  onSelect(ship: Ship): void {
+    this.dialogRef = this.dialog.open(SelectedShipDialog);
+    this.dialogRef.componentInstance.selectedShip = ship;
+  }
   goBack() {
     this.location.back();
   }

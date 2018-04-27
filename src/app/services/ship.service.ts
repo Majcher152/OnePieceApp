@@ -15,6 +15,14 @@ export class ShipService {
               .catch(this.handleError);
   }
 
+  public getShip(id: number): Promise<Ship>{
+    const url = `${this.shipsUrl}/${id}`;
+    return this.http.get(url)
+          .toPromise()
+          .then(response => response.json().data as Ship)
+          .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.log(error);
     return Promise.reject(error.message);
@@ -33,5 +41,13 @@ export class ShipService {
                     .toPromise()
                     .then( () => null)
                     .catch(this.handleError);
+  }
+
+  update(ship: Ship): Promise<Ship> {
+    const url = `${this.shipsUrl}/${ship.id}`;
+    return this.http.put(url, JSON.stringify(ship))
+            .toPromise()
+            .then(() => ship)
+            .catch(this.handleError);
   }
 }
