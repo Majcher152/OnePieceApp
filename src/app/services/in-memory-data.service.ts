@@ -25,7 +25,14 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 11, name: 'Going Merry', category: 'ships' },
       { id: 12, name: 'Sunny', category: 'ships' }
     ];
-    return {characters, ships};
+    let weapons = [
+      { id: 13, name: 'Devil fruit', category: 'weapons'},
+      { id: 14, name: 'Melee', category: 'weapons'},
+      { id: 15, name: 'Sword', category: 'weapons'},
+      { id: 16, name: 'Shooting', category: 'weapons'},
+      { id: 17, name: 'Mechanical', category: 'weapons'},
+    ];
+    return {characters, ships, weapons};
   } 
 
 

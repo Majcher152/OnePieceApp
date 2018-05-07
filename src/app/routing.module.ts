@@ -1,3 +1,5 @@
+import { WeaponsComponent } from './weapons/weapons.component';
+import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
 import { ShipDetailComponent } from './ship-detail/ship-detail.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -14,6 +16,8 @@ const routes: Routes = [
     { path: 'character/detail/:id', component: CharacterDetailComponent },
     { path: 'ship/detail/:id', component: ShipDetailComponent },
     { path: 'ships', component: ShipsComponent },
+    { path: 'weapons', component: WeaponsComponent },
+    { path: 'weapon/detail/:id', component:  WeaponDetailComponent },
 ];
 
 @NgModule({

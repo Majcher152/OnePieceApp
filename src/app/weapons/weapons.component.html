@@ -1,0 +1,21 @@
+<div style="text-align:center">
+  <h1>Weapons</h1>
+</div>
+
+<mat-card>
+  <mat-input-container>
+    <input matInput #weaponName placeholder="Weapon name" />
+  </mat-input-container>
+  <button mat-raised-button (click)="add(weaponName.value); weaponName.value= '' ">
+    Add Weapon
+  </button>
+</mat-card>
+
+<mat-nav-list>
+  <a mat-list-item *ngFor="let weapon of weapons" (click)="onSelect(weapon)">
+    <span mat-line>{{ weapon.name }}</span>
+    <button mat-raised-button (click)="delete(weapon); $event.stopPropagation();">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </a>
+</mat-nav-list>

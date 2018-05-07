@@ -5,7 +5,6 @@ import { Component, OnInit } from '@angular/core';
 import { Ship } from '../models/ship';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
-/* import { create } from 'domain'; */
 
 
 @Component({

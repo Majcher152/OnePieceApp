@@ -1,3 +1,4 @@
+import { WeaponService } from './services/weapon.service';
 import { ShipService } from './services/ship.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -44,6 +45,8 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
+import { WeaponsComponent, SelectedWeaponDialog } from './weapons/weapons.component';
+import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
 
 
 
@@ -58,7 +61,10 @@ import 'rxjs/add/operator/switchMap';
     ImageComponent,
     ShipsComponent,
     ShipDetailComponent,
-    SelectedShipDialog
+    SelectedShipDialog,
+    WeaponsComponent,
+    WeaponDetailComponent,
+    SelectedWeaponDialog
   ],
   imports: [
     BrowserModule, 
@@ -68,8 +74,8 @@ import 'rxjs/add/operator/switchMap';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
      MaterialModule , BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatListModule, MatDialogModule, MatTabsModule, MatDividerModule
   ],
-  providers: [CharacterService, CharacterSearchService, MatDialog, ImageService, ShipService],
+  providers: [CharacterService, CharacterSearchService, MatDialog, ImageService, ShipService, WeaponService],
   bootstrap: [AppComponent],
-  entryComponents: [SelectedCharacterDialog, SelectedShipDialog]
+  entryComponents: [SelectedCharacterDialog, SelectedShipDialog, SelectedWeaponDialog]
 })
 export class AppModule { }
