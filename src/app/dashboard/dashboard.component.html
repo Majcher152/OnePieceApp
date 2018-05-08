@@ -17,6 +17,7 @@
   <h4>{{ ship.name }}</h4>
   <img src="{{ visibleImagesShips[u].url }}" class="img-center">
 </mat-card>
+<app-ship-search></app-ship-search>
 
 <h3>Top Weapons</h3>
 <mat-card class="col-1-4 dashboard-card" *ngFor="let weapon of weapons; let u = index" [routerLink]="['/weapon/detail', weapon.id]">

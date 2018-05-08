@@ -1,3 +1,4 @@
+import { ShipSearchService } from './services/ship-search.service';
 import { WeaponService } from './services/weapon.service';
 import { ShipService } from './services/ship.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -47,6 +48,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { WeaponsComponent, SelectedWeaponDialog } from './weapons/weapons.component';
 import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
+import { ShipSearchComponent } from './ship-search/ship-search.component';
 
 
 
@@ -64,7 +66,8 @@ import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
     SelectedShipDialog,
     WeaponsComponent,
     WeaponDetailComponent,
-    SelectedWeaponDialog
+    SelectedWeaponDialog,
+    ShipSearchComponent
   ],
   imports: [
     BrowserModule, 
@@ -74,7 +77,7 @@ import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
      MaterialModule , BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatListModule, MatDialogModule, MatTabsModule, MatDividerModule
   ],
-  providers: [CharacterService, CharacterSearchService, MatDialog, ImageService, ShipService, WeaponService],
+  providers: [CharacterService, CharacterSearchService, MatDialog, ImageService, ShipService, ShipSearchService, WeaponService],
   bootstrap: [AppComponent],
   entryComponents: [SelectedCharacterDialog, SelectedShipDialog, SelectedWeaponDialog]
 })

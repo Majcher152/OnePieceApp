@@ -1,0 +1,11 @@
+
+
+<h3>Ship Serach</h3>
+<mat-form-field>
+  <input matInput #searchBox placeholder="Search for ship name" (keyup) ="search(searchBox.value)"/>
+</mat-form-field>
+<mat-nav-list>
+  <a mat-list-item *ngFor="let ship of ships | async" (click)="goToDetail(ship)">
+    {{ ship.name }}
+  </a>
+</mat-nav-list>
