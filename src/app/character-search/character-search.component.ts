@@ -36,7 +36,7 @@ export class CharacterSearchComponent implements OnInit {
   }
 
   goToDetail(character: Character){
-    let link = ['/detail',character.id];
+    let link = ['/character/detail',character.id];
     this.router.navigate(link);
   }
 }

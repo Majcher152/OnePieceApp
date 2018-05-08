@@ -39,6 +39,14 @@ export class WeaponService {
                     .catch(this.handleError);
   }
 
+  public update(weapon: Weapon): Promise<Weapon>{
+    const url= `${this.weaponUrl}`
+    return this.http.put(url, JSON.stringify(weapon))
+      .toPromise()
+      .then(() => weapon)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any>{
     console.log(error);
     return Promise.reject(error.message);

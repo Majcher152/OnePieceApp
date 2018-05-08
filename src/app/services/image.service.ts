@@ -29,5 +29,11 @@ const IMAGES = [
   { "id": 10, "category": "characters", "caption": "Jinbei", "url": "assets/img/jinbei_01.jpeg" },
   
   { "id": 11, "category": "ships", "caption": "Going Merry", "url": "assets/img/going_merry_01.jpeg" },
-  { "id": 12, "category": "ships", "caption": "Sunny", "url": "assets/img/sunny_01.jpeg" }
+  { "id": 12, "category": "ships", "caption": "Sunny", "url": "assets/img/sunny_01.jpeg" },
+
+  { "id": 13, "category": "weapons", "caption": "Devil fruit", "url": "assets/img/devilFruit_01.jpeg" },
+  { "id": 14, "category": "weapons", "caption": "Melee", "url": "assets/img/melee_01.jpeg" },
+  { "id": 15, "category": "weapons", "caption": "Sword", "url": "assets/img/sword_01.jpeg" },
+  { "id": 16, "category": "weapons", "caption": "Shooting", "url": "assets/img/shooting_01.jpeg" },
+  { "id": 17, "category": "weapons", "caption": "Mechanical", "url": "assets/img/mechanical_01.jpeg" }
 ]
