@@ -2,12 +2,24 @@
 <h3>Top Heroes</h3>
 <mat-card class="col-1-4 dashboard-card" *ngFor="let character of characters; let u = index" [routerLink]="['/character/detail', character.id]">
   <h4>{{ character.name }}</h4>
-  <img src="{{ visibleImages[u].url }}" class="img-center" width="200" height="160">
+  <img src="{{ visibleImagesCharacters[u].url }}" class="img-center">
 </mat-card>
- <app-character-search></app-character-search>
+<app-character-search></app-character-search>
 
 <!--   <a *ngFor="let character of characters" >
     <div class ="module character">
       <h4>{{ character.name }}</h4>
     </div>
-  </a> --> 
+  </a> -->
+
+<h3>Ships</h3>
+<mat-card class="col-1-4 dashboard-card" *ngFor="let ship of ships; let u = index" [routerLink]="['/ship/detail', ship.id]">
+  <h4>{{ ship.name }}</h4>
+  <img src="{{ visibleImagesShips[u].url }}" class="img-center">
+</mat-card>
+
+<h3>Top Weapons</h3>
+<mat-card class="col-1-4 dashboard-card" *ngFor="let weapon of weapons; let u = index" [routerLink]="['/weapon/detail', weapon.id]">
+  <h4>{{ weapon.name }}</h4>
+  <img src="{{ visibleImagesWeapons[u].url }}" class="img-center">
+</mat-card>
