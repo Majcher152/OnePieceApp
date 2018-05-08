@@ -40,6 +40,14 @@
       </mat-list>
     </mat-tab>
     <!--###################################################################################-->
+    <mat-tab label="Weapons">
+      <mat-list>
+        <a mat-list-item *ngFor="let weapon of weapons" (click)="onSelect(weapon)">
+          <span mat-line>{{ weapon.name }}</span>
+        </a>
+      </mat-list>
+    </mat-tab>
+    <!--###################################################################################-->
     <mat-tab label="About">
       <mat-card class="info">SOON</mat-card>
     </mat-tab>

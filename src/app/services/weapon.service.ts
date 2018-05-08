@@ -17,6 +17,13 @@ export class WeaponService {
       .then(response => response.json().data as Weapon[]);
   }
 
+  public getWeapon(id:number): Promise<Weapon>{
+    const url = `${this.weaponUrl}/${id}`;
+    return this.http.get(url).toPromise()
+      .then(response => response.json().data as Weapon)
+      .catch(this.handleError);
+  }
+
   public create(name:String): Promise<Weapon>{
     return this.http.post(this.weaponUrl, JSON.stringify({name: name}), {headers: this.headers})
             .toPromise()
