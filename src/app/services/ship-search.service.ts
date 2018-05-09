@@ -9,6 +9,8 @@ export class ShipSearchService {
   constructor(private http:Http) { }
 
   search(term: String):Observable<Ship[]>{
+    console.log(this.http.get(`app/ships/?name=${term}`)
+    .map((r: Response) => r.json().data as Ship[]));
     return this.http.get(`app/ships/?name=${term}`)
     .map((r: Response) => r.json().data as Ship[]);
   }

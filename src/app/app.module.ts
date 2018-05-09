@@ -49,6 +49,8 @@ import 'rxjs/add/operator/switchMap';
 import { WeaponsComponent, SelectedWeaponDialog } from './weapons/weapons.component';
 import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
 import { ShipSearchComponent } from './ship-search/ship-search.component';
+import { WeaponSearchComponent } from './weapon-search/weapon-search.component';
+import { WeaponSearchService } from './services/weapon-search.service';
 
 
 
@@ -67,7 +69,8 @@ import { ShipSearchComponent } from './ship-search/ship-search.component';
     WeaponsComponent,
     WeaponDetailComponent,
     SelectedWeaponDialog,
-    ShipSearchComponent
+    ShipSearchComponent,
+    WeaponSearchComponent
   ],
   imports: [
     BrowserModule, 
@@ -77,7 +80,7 @@ import { ShipSearchComponent } from './ship-search/ship-search.component';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
      MaterialModule , BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatListModule, MatDialogModule, MatTabsModule, MatDividerModule
   ],
-  providers: [CharacterService, CharacterSearchService, MatDialog, ImageService, ShipService, ShipSearchService, WeaponService],
+  providers: [CharacterService, CharacterSearchService, MatDialog, ImageService, ShipService, ShipSearchService, WeaponService, WeaponSearchService],
   bootstrap: [AppComponent],
   entryComponents: [SelectedCharacterDialog, SelectedShipDialog, SelectedWeaponDialog]
 })
